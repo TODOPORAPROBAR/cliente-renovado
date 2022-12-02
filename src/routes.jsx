@@ -1,4 +1,5 @@
 import { Home, Profile, SignIn, SignUp } from "@/pages";
+import Habitos from "./pages/Habitos";
 import {
   HomeIcon,
   UserCircleIcon,
@@ -38,6 +39,12 @@ export const routes = [
     href: "https://www.material-tailwind.com/docs/react/installation",
     target: "_blank",
     element: "",
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "Habitos",
+    path: "/habitos",
+    element: <Habitos />,
   },
 ];
 
