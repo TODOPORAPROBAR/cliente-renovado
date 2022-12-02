@@ -1,5 +1,6 @@
-import { Home, Profile, SignIn, SignUp } from "@/pages";
+import { Profile, SignIn, SignUp } from "@/pages";
 import Habitos from "./pages/Habitos";
+import Home from "./pages/Home";
 import {
   HomeIcon,
   UserCircleIcon,
