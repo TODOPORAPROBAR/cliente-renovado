@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Avatar, Typography, Button } from "@material-tailwind/react";
-import {
-  MapPinIcon,
-  BriefcaseIcon,
-  BuildingLibraryIcon,
-} from "@heroicons/react/24/solid";
 import CountsLayout from './layouts/CountsLayout';
 import HabitAccordion from './components/HabitAccordion';
+import { templateHabits } from './data';
 
 const Habitos = () => {
+  const [habits, setHabits] = useState(templateHabits)
+  const [info, setInfo] = useState({
+    complete: 0,
+    incomplete: 0
+  })
+
+  const handleCheckHabitTask = (habitIndex, taskIndex) => {
+    setHabits(prev => {
+      const value = prev[habitIndex].tasks[taskIndex].checked
+      prev[habitIndex].tasks[taskIndex].checked = !value
+      return prev
+    })
+    // handleUpdate()
+  }
+  
+  const handleUpdate = () => {
+    let complete = 0
+    let incomplete = 0
+    habits.forEach(
+      habit => {
+        complete += habit.tasks.filter(task => task.checked).length
+        incomplete += habit.tasks.length - complete
+      }
+    )
+    setInfo({ complete, incomplete })
+  }
+
   return (
     <>
       <section className="relative block h-[50vh]">
@@ -36,34 +59,37 @@ const Habitos = () => {
                   {/* <Button className="bg-blue-400">Conntect</Button> */}
                 </div>
                 <div className="w-full px-4 lg:order-1 lg:w-4/12">
-                  <CountsLayout />
+                  <CountsLayout complete={info.complete} incomplete={info.incomplete} days={2} />
                 </div>
               </div>
               {/* Body */}
               <div className="mb-10 border-t border-blue-gray-50 py-6 text-center">
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
-                    <Typography className="mb-8 font-normal text-blue-gray-500">
+                    {/* <Typography className="mb-8 font-normal text-blue-gray-500">
                       An artist of considerable range, Jenna the name taken by
                       Melbourne-raised, Brooklyn-based Nick Murphy writes,
                       performs and records all of his own music, giving it a
                       warm, intimate feel with a solid groove structure. An
                       artist of considerable range.
-                    </Typography>
-                    <Button variant="text">Show more</Button>
+                    </Typography> */}
+                    {/* <Button variant="text">Show more</Button> */}
 
-                    <HabitAccordion
-                      header="Habitos para dormir mejor"
-                      description="Marca las tareas realizadas en el dia para este habito, texto de ejemplo no me juzgen no soy escritor"
-                    />
-                    <HabitAccordion
-                      header="Habitos para dormir mejor"
-                      description="Marca las tareas realizadas en el dia para este habito, texto de ejemplo no me juzgen no soy escritor"
-                    />
-                    <HabitAccordion
-                      header="Habitos para dormir mejor"
-                      description="Marca las tareas realizadas en el dia para este habito, texto de ejemplo no me juzgen no soy escritor"
-                    />
+                    {
+                      habits.map(
+                        (habit, index) =>
+                          <HabitAccordion
+                            key={'habit-' + index}
+                            indexHabit={index}
+                            title={habit.title}
+                            description={habit.description}
+                            tasks={habit.tasks}
+                            onClickTask={handleCheckHabitTask}
+                          />
+                      )
+                    }
+
+                    <Button onClick={() => console.log(habits)}>Guardar</Button>
                   </div>
                 </div>
               </div>

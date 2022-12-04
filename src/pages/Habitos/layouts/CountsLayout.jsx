@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from "@material-tailwind/react";
 
-const CountsLayout = () => {
+const CountsLayout = ({complete, incomplete, days}) => {
   return (
     <div className="flex justify-center py-4 pt-8 lg:pt-4">
       <div className="mr-4 p-3 text-center">
@@ -10,7 +10,7 @@ const CountsLayout = () => {
           color="blue-gray"
           className="font-bold uppercase"
         >
-          10
+          {complete}
         </Typography>
         <Typography
           variant="small"
@@ -25,7 +25,7 @@ const CountsLayout = () => {
           color="blue-gray"
           className="font-bold uppercase"
         >
-          3
+          {incomplete}
         </Typography>
         <Typography
           variant="small"
@@ -40,7 +40,7 @@ const CountsLayout = () => {
           color="blue-gray"
           className="font-bold uppercase"
         >
-          2
+          {days}
         </Typography>
         <Typography
           variant="small"
