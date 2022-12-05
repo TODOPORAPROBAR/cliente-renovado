@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Button } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import CountsLayout from './layouts/CountsLayout';
 import HabitAccordion from './components/HabitAccordion';
 import { templateHabits } from './data';
+import AvatarLayout from './layouts/AvatarLayout';
+import verifyCompleted from './helpers/verifyCompleted';
+import getDailyHabits from './helpers/getDailyHabits';
 
 const Habitos = () => {
-  const [habits, setHabits] = useState(templateHabits)
+  const [habits, setHabits] = useState(null)
   const [info, setInfo] = useState({ complete: 0, incomplete: 0 })
+  const [isNew, setIsNew] = useState(false)
+
+  const handleGetDailyHabits = async () => {
+    const { history, isNew } = await getDailyHabits()
+    setHabits(history.habits)
+    setIsNew(isNew)
+  }
 
   const handleUpdateHabits = (index, tasks) => {
     const listHabits = [...habits]
@@ -14,22 +24,15 @@ const Habitos = () => {
     setHabits(listHabits)
   }
 
-  const handleUpdate = () => {
-    let complete = 0
-    let incomplete = 0
-    habits.forEach(
-      ({ tasks }) => {
-        const checkeds = tasks.filter(task => task.checked).length
-        complete += checkeds
-        incomplete = incomplete + (tasks.length - checkeds)
-      }
-    )
-    setInfo({ complete, incomplete })
-  }
+  const handleUpdate = () => setInfo(verifyCompleted(habits))
 
   useEffect(() => {
-    handleUpdate()
+    habits && handleUpdate()
   }, [habits])
+
+  useEffect(() => {
+    handleGetDailyHabits()
+  }, [])
 
   return (
     <>
@@ -43,16 +46,7 @@ const Habitos = () => {
             <div className="px-6">
               <div className="flex flex-wrap justify-center">
                 <div className="flex w-full justify-center px-4 lg:order-2 lg:w-3/12">
-                  <div className="relative">
-                    <div className="-mt-20 w-40">
-                      <Avatar
-                        src="/img/team-2.jpg"
-                        alt="Profile picture"
-                        variant="circular"
-                        className="h-full w-full shadow-xl"
-                      />
-                    </div>
-                  </div>
+                  <AvatarLayout />
                 </div>
                 <div className="mt-10 flex w-full justify-center px-4 lg:order-3 lg:mt-0 lg:w-4/12 lg:justify-end lg:self-center">
                 </div>
@@ -64,7 +58,15 @@ const Habitos = () => {
               <div className="mb-10 border-t border-blue-gray-50 py-6 text-center">
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
+                    <div className='text-xl'>
+                      {
+                        isNew
+                          ? 'Bienvenido, completa tus tareas diarias'
+                          : 'Hola otra vez, marca como completado tus tareas diarias'
+                      }
+                    </div>
                     {
+                      habits &&
                       habits.map(
                         (habit, index) =>
                           <HabitAccordion
@@ -75,7 +77,9 @@ const Habitos = () => {
                           />
                       )
                     }
-                    <Button onClick={() => console.log(habits)}>Guardar</Button>
+                    <div className="mt-3">
+                      <Button onClick={() => console.log(habits)}>Guardar</Button>
+                    </div>
                   </div>
                 </div>
               </div>
