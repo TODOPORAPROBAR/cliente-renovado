@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Accordion, AccordionBody, AccordionHeader, Checkbox } from '@material-tailwind/react'
 import getRandomId from '@/helpers/getRandomId'
 
 
-const HabitAccordion = ({ indexHabit, title, description, tasks: listTasks, onClickTask }) => {
+const HabitAccordion = ({ indexHabit, data, onClickTask }) => {
+  const { title, description } = data
   const [open, setOpen] = useState(true)
-  const [tasks, setTasks] = useState(listTasks)
+  const [tasks, setTasks] = useState(data.tasks)
 
   const handleCheckTask = (index) => {
-    onClickTask(indexHabit, index)
+    const list = [...tasks]
+    list[index].checked = !list[index].checked
+    setTasks(list)
   }
+
+  useEffect(() => {
+    onClickTask(indexHabit, tasks)
+  }, [tasks])
+
 
   return (
     <Accordion open={open}>
@@ -23,10 +31,11 @@ const HabitAccordion = ({ indexHabit, title, description, tasks: listTasks, onCl
             tasks.map(
               (task, index) =>
                 <div key={'task-check-' + getRandomId(4)}>
-                  <Checkbox 
-                    id={"task-check-" + getRandomId(4)} 
-                    label={task.description} value={task.checked} 
-                    onChange={() => handleCheckTask(index)} 
+                  <Checkbox
+                    id={"task-check-" + getRandomId(4)}
+                    label={task.description}
+                    checked={task.checked}
+                    onChange={() => handleCheckTask(index)}
                   />
                 </div>
             )

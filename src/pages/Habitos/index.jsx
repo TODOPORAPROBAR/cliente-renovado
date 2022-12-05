@@ -1,36 +1,35 @@
-import React, { useState } from 'react'
-import { Avatar, Typography, Button } from "@material-tailwind/react";
+import React, { useEffect, useState } from 'react'
+import { Avatar, Button } from "@material-tailwind/react";
 import CountsLayout from './layouts/CountsLayout';
 import HabitAccordion from './components/HabitAccordion';
 import { templateHabits } from './data';
 
 const Habitos = () => {
   const [habits, setHabits] = useState(templateHabits)
-  const [info, setInfo] = useState({
-    complete: 0,
-    incomplete: 0
-  })
+  const [info, setInfo] = useState({ complete: 0, incomplete: 0 })
 
-  const handleCheckHabitTask = (habitIndex, taskIndex) => {
-    setHabits(prev => {
-      const value = prev[habitIndex].tasks[taskIndex].checked
-      prev[habitIndex].tasks[taskIndex].checked = !value
-      return prev
-    })
-    // handleUpdate()
+  const handleUpdateHabits = (index, tasks) => {
+    const listHabits = [...habits]
+    listHabits[index].tasks = tasks
+    setHabits(listHabits)
   }
-  
+
   const handleUpdate = () => {
     let complete = 0
     let incomplete = 0
     habits.forEach(
-      habit => {
-        complete += habit.tasks.filter(task => task.checked).length
-        incomplete += habit.tasks.length - complete
+      ({ tasks }) => {
+        const checkeds = tasks.filter(task => task.checked).length
+        complete += checkeds
+        incomplete = incomplete + (tasks.length - checkeds)
       }
     )
     setInfo({ complete, incomplete })
   }
+
+  useEffect(() => {
+    handleUpdate()
+  }, [habits])
 
   return (
     <>
@@ -56,7 +55,6 @@ const Habitos = () => {
                   </div>
                 </div>
                 <div className="mt-10 flex w-full justify-center px-4 lg:order-3 lg:mt-0 lg:w-4/12 lg:justify-end lg:self-center">
-                  {/* <Button className="bg-blue-400">Conntect</Button> */}
                 </div>
                 <div className="w-full px-4 lg:order-1 lg:w-4/12">
                   <CountsLayout complete={info.complete} incomplete={info.incomplete} days={2} />
@@ -66,29 +64,17 @@ const Habitos = () => {
               <div className="mb-10 border-t border-blue-gray-50 py-6 text-center">
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
-                    {/* <Typography className="mb-8 font-normal text-blue-gray-500">
-                      An artist of considerable range, Jenna the name taken by
-                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                      performs and records all of his own music, giving it a
-                      warm, intimate feel with a solid groove structure. An
-                      artist of considerable range.
-                    </Typography> */}
-                    {/* <Button variant="text">Show more</Button> */}
-
                     {
                       habits.map(
                         (habit, index) =>
                           <HabitAccordion
                             key={'habit-' + index}
                             indexHabit={index}
-                            title={habit.title}
-                            description={habit.description}
-                            tasks={habit.tasks}
-                            onClickTask={handleCheckHabitTask}
+                            data={habit}
+                            onClickTask={handleUpdateHabits}
                           />
                       )
                     }
-
                     <Button onClick={() => console.log(habits)}>Guardar</Button>
                   </div>
                 </div>
