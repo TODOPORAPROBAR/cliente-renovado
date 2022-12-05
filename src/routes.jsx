@@ -1,6 +1,7 @@
 import { Profile, SignIn, SignUp } from "@/pages";
 import Habitos from "./pages/Habitos";
 import Home from "./pages/Home";
+import Templates from "./pages/Templates";
 import {
   HomeIcon,
   UserCircleIcon,
@@ -8,6 +9,7 @@ import {
   UserPlusIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
+import Template from "./pages/Template";
 
 export const routes = [
   {
@@ -46,6 +48,18 @@ export const routes = [
     name: "Habitos",
     path: "/habitos",
     element: <Habitos />,
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "Templates",
+    path: "/templates",
+    element: <Templates />,
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "Template",
+    path: "/template",
+    element: <Template />,
   },
 ];
 
