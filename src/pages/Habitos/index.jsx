@@ -12,7 +12,6 @@ const Habitos = () => {
   const [info, setInfo] = useState({ complete: 0, incomplete: 0 })
   const [isNew, setIsNew] = useState(false)
 
-<<<<<<< HEAD
   const handleGetDailyHabits = async () => {
     const { history, isNew } = await getDailyHabits()
     setHabits(history.habits)
@@ -23,32 +22,32 @@ const Habitos = () => {
     const listHabits = [...habits]
     listHabits[index].tasks = tasks
     setHabits(listHabits)
-=======
-  const handleCheckHabitTask = (habitIndex, taskIndex) => {
-    setHabits(prev => {
-      const value = prev[habitIndex].tasks[taskIndex].checked
-      prev[habitIndex].tasks[taskIndex].checked = !value
-      return prev
-    })
   }
-  
-  const saveTasks = async(e) => {
-    e.preventDefault()
-    // console.log(habits);
-    const tasks = await fetch("http://localhost:4000/tasks",{
-      body: JSON.stringify(habits),
-      method: "POST",
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(response => {
-      return response.json()
-    })
-  console.log(tasks)
->>>>>>> 63dc454ca35bc41da6e72d6f1497e76f295489e2
-  }
+
+  // const handleCheckHabitTask = (habitIndex, taskIndex) => {
+  //   setHabits(prev => {
+  //     const value = prev[habitIndex].tasks[taskIndex].checked
+  //     prev[habitIndex].tasks[taskIndex].checked = !value
+  //     return prev
+  //   })
+  // }
+
+  // const saveTasks = async(e) => {
+  //   e.preventDefault()
+  //   // console.log(habits);
+  //   const tasks = await fetch("http://localhost:4000/tasks",{
+  //     body: JSON.stringify(habits),
+  //     method: "POST",
+  //     mode: 'cors',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //   })
+  //   .then(response => {
+  //     return response.json()
+  //   })
+  // console.log(tasks)
+  // }
 
   const handleUpdate = () => setInfo(verifyCompleted(habits))
 
@@ -103,14 +102,11 @@ const Habitos = () => {
                           />
                       )
                     }
-<<<<<<< HEAD
                     <div className="mt-3">
                       <Button onClick={() => console.log(habits)}>Guardar</Button>
                     </div>
-=======
 
-                    <Button onClick={(e) => saveTasks(e)}>Guardar</Button>
->>>>>>> 63dc454ca35bc41da6e72d6f1497e76f295489e2
+                    {/* <Button onClick={(e) => saveTasks(e)}>Guardar</Button> */}
                   </div>
                 </div>
               </div>
