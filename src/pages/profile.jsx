@@ -22,7 +22,7 @@ export function Profile() {
                   <div className="relative">
                     <div className="-mt-20 w-40">
                       <Avatar
-                        src="/img/team-2.jpg"
+                        src="/"
                         alt="Profile picture"
                         variant="circular"
                         className="h-full w-full shadow-xl"
@@ -85,24 +85,24 @@ export function Profile() {
               </div>
               <div className="my-8 text-center">
                 <Typography variant="h2" color="blue-gray" className="mb-2">
-                  Jenna Stones
+                  Jacquemin Sheila
                 </Typography>
                 <div className="mb-16 flex items-center justify-center gap-2">
                   <MapPinIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
-                    Los Angeles, California
+                    Cmte. Fontana - Formosa
                   </Typography>
                 </div>
                 <div className="mb-2 flex items-center justify-center gap-2">
                   <BriefcaseIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
-                    Solution Manager - Creative Tim Officer
+                    Colaboradora
                   </Typography>
                 </div>
                 <div className="mb-2 flex items-center justify-center gap-2">
                   <BuildingLibraryIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
-                    University of Computer Science
+                    Instituto Politécnico Formosa, "IPF"
                   </Typography>
                 </div>
               </div>
@@ -111,11 +111,6 @@ export function Profile() {
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
                     <Typography className="mb-8 font-normal text-blue-gray-500">
-                      An artist of considerable range, Jenna the name taken by
-                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                      performs and records all of his own music, giving it a
-                      warm, intimate feel with a solid groove structure. An
-                      artist of considerable range.
                     </Typography>
                     <Button variant="text">Show more</Button>
                   </div>

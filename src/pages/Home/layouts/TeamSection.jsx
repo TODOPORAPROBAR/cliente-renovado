@@ -10,9 +10,7 @@ const TeamSection = () => {
     <section className="px-4 pt-20 pb-48">
       <div className="container mx-auto">
         <PageTitle heading="Here are our heroes">
-          According to the National Oceanic and Atmospheric Administration,
-          Ted, Scambos, NSIDClead scentist, puts the potentially record
-          maximum.
+         ...
         </PageTitle>
         <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
           {teamData.map(({ img, name, position, socials }) => (
