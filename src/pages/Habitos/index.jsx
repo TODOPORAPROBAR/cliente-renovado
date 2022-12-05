@@ -17,19 +17,23 @@ const Habitos = () => {
       prev[habitIndex].tasks[taskIndex].checked = !value
       return prev
     })
-    // handleUpdate()
   }
   
-  const handleUpdate = () => {
-    let complete = 0
-    let incomplete = 0
-    habits.forEach(
-      habit => {
-        complete += habit.tasks.filter(task => task.checked).length
-        incomplete += habit.tasks.length - complete
-      }
-    )
-    setInfo({ complete, incomplete })
+  const saveTasks = async(e) => {
+    e.preventDefault()
+    // console.log(habits);
+    const tasks = await fetch("http://localhost:4000/tasks",{
+      body: JSON.stringify(habits),
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      return response.json()
+    })
+  console.log(tasks)
   }
 
   return (
@@ -89,7 +93,7 @@ const Habitos = () => {
                       )
                     }
 
-                    <Button onClick={() => console.log(habits)}>Guardar</Button>
+                    <Button onClick={(e) => saveTasks(e)}>Guardar</Button>
                   </div>
                 </div>
               </div>
