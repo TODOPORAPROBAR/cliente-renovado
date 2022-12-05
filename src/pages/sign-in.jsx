@@ -15,7 +15,7 @@ export function SignIn() {
   return (
     <>
       <img
-        src="/img/background-2.jpg"
+        src="/"
         className="absolute inset-0 z-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 z-0 h-full w-full bg-black/50" />
@@ -47,7 +47,7 @@ export function SignIn() {
               Sign In
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
-              Don't have an account?
+              ...
               <Link to="/sign-up">
                 <Typography
                   as="span"
@@ -55,7 +55,7 @@ export function SignIn() {
                   color="blue"
                   className="ml-1 font-bold"
                 >
-                  Sign up
+                  ...
                 </Typography>
               </Link>
             </Typography>

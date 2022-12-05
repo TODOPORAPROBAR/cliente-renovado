@@ -6,7 +6,7 @@ const AvatarLayout = () => {
     <div className="relative">
       <div className="-mt-20 w-40">
         <Avatar
-          src="/img/team-2.jpg"
+          src="/"
           alt="Profile picture"
           variant="circular"
           className="h-full w-full shadow-xl"

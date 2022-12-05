@@ -11,7 +11,6 @@ export default async (habits) => {
     }
     const response = await fetch(`${server}/history/daily`, content)
     const json = await response.json()
-    console.log(json)
     return json
   } catch (error) {
     console.log(error)

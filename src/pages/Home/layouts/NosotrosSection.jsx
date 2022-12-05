@@ -25,21 +25,19 @@ const NosotrosSection = () => {
         </Typography>
         <Typography className="mb-8 font-normal text-blue-gray-500">
           Buscamos mejorar los hábitos en las vidas de las personas, brindándoles herramientas para organizar
-          sus objetivos personales y
+          sus objetivos personales...
           <br />
           <br />
-          The kit comes with three pre-built pages to help you get started
-          faster. You can change the text and images and you're good to
-          go. Just make sure you enable them first via JavaScript.
+          ........
         </Typography>
-        <Button variant="outlined">read more</Button>
+        <Button variant="outlined">Leer más</Button>
       </div>
       <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
         <Card className="shadow-lg shadow-gray-500/10">
           <CardHeader className="relative h-56">
             <img
-              alt="Card Image"
-              src="/img/teamwork.jpeg"
+              alt="Imagen"
+              src="/"
               className="h-full w-full"
             />
           </CardHeader>
@@ -49,12 +47,10 @@ const NosotrosSection = () => {
               color="blue-gray"
               className="mb-3 font-bold"
             >
-              Top Notch Services
+              Servicios
             </Typography>
             <Typography className="font-normal text-blue-gray-500">
-              The Arctic Ocean freezes every winter and much of the
-              sea-ice then thaws every summer, and that process will
-              continue whatever happens.
+              ....
             </Typography>
           </CardBody>
         </Card>

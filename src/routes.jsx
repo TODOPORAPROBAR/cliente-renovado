@@ -8,6 +8,7 @@ import {
   UserPlusIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
+import MisHabitos from "./pages/MisHabitos";
 
 export const routes = [
   {
@@ -36,16 +37,15 @@ export const routes = [
   },
   {
     icon: DocumentTextIcon,
-    name: "Docs",
-    href: "https://www.material-tailwind.com/docs/react/installation",
-    target: "_blank",
-    element: "",
+    name: "Daily",
+    path: "/daily",
+    element: <Habitos />,
   },
   {
     icon: DocumentTextIcon,
     name: "Habitos",
     path: "/habitos",
-    element: <Habitos />,
+    element: <MisHabitos />,
   },
 ];
 

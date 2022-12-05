@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from "@material-tailwind/react";
 import CountsLayout from './layouts/CountsLayout';
 import HabitAccordion from './components/HabitAccordion';
-import AvatarLayout from './layouts/AvatarLayout';
+import AvatarLayout from '../../layouts/AvatarLayout';
 import verifyCompleted from './helpers/verifyCompleted';
 import getDailyHabits from './helpers/getDailyHabits';
 import updateDailyHabits from './helpers/updateDailyHabits';
