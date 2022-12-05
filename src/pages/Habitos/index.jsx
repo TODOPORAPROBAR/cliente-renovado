@@ -2,20 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { Button } from "@material-tailwind/react";
 import CountsLayout from './layouts/CountsLayout';
 import HabitAccordion from './components/HabitAccordion';
-import { templateHabits } from './data';
 import AvatarLayout from './layouts/AvatarLayout';
 import verifyCompleted from './helpers/verifyCompleted';
 import getDailyHabits from './helpers/getDailyHabits';
+import updateDailyHabits from './helpers/updateDailyHabits';
+import disableTasks from './helpers/disableTasks';
 
 const Habitos = () => {
   const [habits, setHabits] = useState(null)
-  const [info, setInfo] = useState({ complete: 0, incomplete: 0 })
-  const [isNew, setIsNew] = useState(false)
+  const [info, setInfo] = useState({ complete: 0, incomplete: 0, days: 0 })
+  const [loading, setLoading] = useState(false)
 
   const handleGetDailyHabits = async () => {
-    const { history, isNew } = await getDailyHabits()
-    setHabits(history.habits)
-    setIsNew(isNew)
+    const { history, days } = await getDailyHabits()
+    setHabits(disableTasks(history.habits))
+    setInfo(prev => ({...prev, days}) )
+  }
+
+  const handleUpdateDailyHabits = async () => {
+    setLoading(true)
+    const { history } = await updateDailyHabits(habits)
+    setLoading(false)
+    setHabits(disableTasks(history.habits))
   }
 
   const handleUpdateHabits = (index, tasks) => {
@@ -49,14 +57,17 @@ const Habitos = () => {
   // console.log(tasks)
   // }
 
-  const handleUpdate = () => setInfo(verifyCompleted(habits))
+  const handleUpdate = () => {
+    const { complete, incomplete } = verifyCompleted(habits)
+    setInfo(prev => ({...prev, complete, incomplete }))
+  }
 
   useEffect(() => {
     habits && handleUpdate()
   }, [habits])
 
   useEffect(() => {
-    handleGetDailyHabits()
+    !habits && handleGetDailyHabits()
   }, [])
 
   return (
@@ -76,20 +87,13 @@ const Habitos = () => {
                 <div className="mt-10 flex w-full justify-center px-4 lg:order-3 lg:mt-0 lg:w-4/12 lg:justify-end lg:self-center">
                 </div>
                 <div className="w-full px-4 lg:order-1 lg:w-4/12">
-                  <CountsLayout complete={info.complete} incomplete={info.incomplete} days={2} />
+                  <CountsLayout complete={info.complete} incomplete={info.incomplete} days={info.days} />
                 </div>
               </div>
               {/* Body */}
               <div className="mb-10 border-t border-blue-gray-50 py-6 text-center">
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
-                    <div className='text-xl'>
-                      {
-                        isNew
-                          ? 'Bienvenido, completa tus tareas diarias'
-                          : 'Hola otra vez, marca como completado tus tareas diarias'
-                      }
-                    </div>
                     {
                       habits &&
                       habits.map(
@@ -103,7 +107,13 @@ const Habitos = () => {
                       )
                     }
                     <div className="mt-3">
-                      <Button onClick={() => console.log(habits)}>Guardar</Button>
+                      <Button disabled={loading} onClick={handleUpdateDailyHabits}>
+                        {
+                          loading
+                            ? 'Guardando...'
+                            : 'Guardar'
+                        }
+                      </Button>
                     </div>
 
                     {/* <Button onClick={(e) => saveTasks(e)}>Guardar</Button> */}

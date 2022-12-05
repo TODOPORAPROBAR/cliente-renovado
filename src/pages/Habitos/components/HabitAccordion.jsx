@@ -33,6 +33,12 @@ const HabitAccordion = ({ indexHabit, data, onClickTask }) => {
                 <div key={'task-check-' + getRandomId(4)}>
                   <Checkbox
                     id={"task-check-" + getRandomId(4)}
+                    disabled={task.disabled}
+                    labelProps={{
+                      style: {
+                        textDecoration: task.disabled ? 'line-through' : 'none'
+                      }
+                    }}
                     label={task.description}
                     checked={task.checked}
                     onChange={() => handleCheckTask(index)}
