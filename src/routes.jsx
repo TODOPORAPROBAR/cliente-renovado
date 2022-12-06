@@ -13,6 +13,7 @@ import MisHabitos from "./pages/MisHabitos";
 import Template from "./pages/Template";
 import MicroLogin from "./pages/MicroLogin";
 import getUserToken from "./helpers/getUserToken";
+import DeleteDaily from "./pages/DeleteDaily";
 
 const token = getUserToken()
 
@@ -67,7 +68,7 @@ const routes = [
   {
     icon: DocumentTextIcon,
     name: "Daily",
-    path: "/daily",
+    path: "/",
     element: <Habitos />,
     nav: true,
     logged: true
@@ -95,6 +96,14 @@ const routes = [
     element: <MicroLogin />,
     nav: true,
     logged: false
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "DeleteDaily",
+    path: "/deletedaily",
+    element: <DeleteDaily />,
+    nav: true,
+    logged: true
   },
 ];
 
