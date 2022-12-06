@@ -12,16 +12,15 @@ import { contactData } from "@/data";
 const ContactSection = () => {
   return (
     <section className="relative bg-blue-gray-50/50 py-24 px-4">
-      <div className="container mx-auto">,
-
-        <PageTitle heading="Construye algo">
-        ....
+      <div className="container mx-auto">
+        <PageTitle heading="...">
+          FUNCIONALIDADES
         </PageTitle>
         
         <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-          {contactData.map(({ title, icon, description }) => (
+          {contactData.map(({ title, icon, description }, index) => (
             <Card
-              key={title}
+              key={'concact-data' + index}
               color="transparent"
               shadow={false}
               className="text-center text-blue-gray-900"
@@ -41,7 +40,7 @@ const ContactSection = () => {
           ))}
         </div>
         <PageTitle heading="¿Quieres trabajar con nosotros?">
-          ....
+        Crear hábitos saludables. Facilitar la toma de decisiones correctas. Mantenerse en el buen camino. Pensar en un futuro. Ser paciente.
         </PageTitle>
         <form className="mx-auto mt-12 max-w-3xl text-center">
           <div className="mb-8 flex gap-8">

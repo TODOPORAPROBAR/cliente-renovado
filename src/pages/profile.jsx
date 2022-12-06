@@ -77,7 +77,7 @@ export function Profile() {
                         variant="small"
                         className="font-normal text-blue-gray-500"
                       >
-                        Comments
+                        Comentarios
                       </Typography>
                     </div>
                   </div>

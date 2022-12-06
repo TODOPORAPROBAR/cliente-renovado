@@ -1,0 +1,6 @@
+#hero-inicio {
+    background-image: url(public/img/girl-granola-honey-blue-white-natural.jpg);
+    background-size: cover;
+    height: 100vh;
+    background-repeat: none !important;
+}

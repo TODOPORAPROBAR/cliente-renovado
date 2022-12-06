@@ -1,29 +1,24 @@
 import getRandomId from '@/helpers/getRandomId'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CardHabit from './components/CardHabit'
-import AvatarLayout from '../Habitos/layouts/AvatarLayout'
+import AvatarLayout from '../../layouts/AvatarLayout'
+import getTemplates from './helpers/getTemplates'
 
 const Templates = () => {
-  const initTemplates = [
-    {
-      _id: 'asdasdweq2312321',
-      title: 'prueba piloto',
-      description: '...',
-      tasks: [
-        { description: 'tarea de prueba' },
-        { description: 'tarea de prueba' }
-      ]
-    },
-    {
-      _id: 'asdasdweq2312321',
-      title: 'prueba piloto',
-      description: '...',
-      tasks: [
-        { description: 'tarea de prueba' },
-        { description: 'tarea de prueba' }
-      ]
-    },
-  ]
+  const [listTemplates, setListTemplates] = useState(null)
+
+  const handleGetTemplates = async () => {
+    try {
+      const { templates } = await getTemplates()
+      setListTemplates(templates)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    handleGetTemplates()
+  },[])
 
   return (
     <>
@@ -37,7 +32,8 @@ const Templates = () => {
             <div className="px-6">
               <div className="flex flex-wrap justify-center">
                 <div className="flex w-full justify-center px-4 lg:order-2 lg:w-3/12">
-                  <AvatarLayout />
+                  {/* <AvatarLayout /> */}
+                  <div className='text-3xl my-3'>Lista de habitos</div>
                 </div>
                 <div className="mt-10 flex w-full justify-center px-4 lg:order-3 lg:mt-0 lg:w-4/12 lg:justify-end lg:self-center">
                 </div>
@@ -49,9 +45,12 @@ const Templates = () => {
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex flex-col gap-4 w-full px-4">
                     {
-                      initTemplates.map(
-                        habit => <CardHabit key={'card-habit-' + getRandomId(4)} data={habit} />
-                      )
+                      listTemplates
+                      ?
+                        listTemplates.map(
+                          habit => <CardHabit key={'card-habit-' + getRandomId(4)} data={habit} />
+                        )
+                      : 'Cargando...'
                     }
                   </div>
                 </div>

@@ -100,8 +100,8 @@ export function Navbar({ brandName, routes, action }) {
             target="_blank"
             className="mb-2 block"
           >
-            <Button variant="text" size="sm" fullWidth>
-            </Button>
+            {/* <Button variant="text" size="sm" fullWidth>
+            </Button> */}
           </a>
           {React.cloneElement(action, {
             className: "w-full block",

@@ -9,8 +9,8 @@ export default async (method, body) => {
       'authorization': token
     },
     method,
-    body
+    body: JSON.stringify(body)
   }
-  const response = await fetch(`${server}/history/daily`, content)
+  const response = await fetch(`${server}/user/habits`, content)
   return await response.json()
 }

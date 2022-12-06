@@ -16,9 +16,9 @@ export function Footer({ title, description, socials, menus, copyright }) {
               {description}
             </Typography>
             <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
-              {socials.map(({ color, name, path }) => (
+              {socials.map(({ color, name, path }, index) => (
                 <a
-                  key={name}
+                  key={'socials-' + index}
                   href={path}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -33,8 +33,8 @@ export function Footer({ title, description, socials, menus, copyright }) {
             </div>
           </div>
           <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
-            {menus.map(({ name, items }) => (
-              <div key={name}>
+            {menus.map(({ name, items }, index) => (
+              <div key={'menus-' + index}>
                 <Typography
                   variant="small"
                   color="blue-gray"
@@ -43,8 +43,8 @@ export function Footer({ title, description, socials, menus, copyright }) {
                   {name}
                 </Typography>
                 <ul className="mt-3">
-                  {items.map((item) => (
-                    <li key={item.name}>
+                  {items.map((item, index) => (
+                    <li key={'item-section-' + index}>
                       <Typography
                         as="a"
                         href={item.path}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AvatarLayout from '../../layouts/AvatarLayout';
 import HabitItem from './components/HabitItem';
-import getHabits from './helpers/getHabits';
+import getHabits from '../../helpers/getHabits';
 
 const MisHabitos = () => {
   const [habits, setHabits] = useState([])
@@ -21,6 +21,10 @@ const MisHabitos = () => {
   useEffect(()=>{
     handleGetHabits()
   },[])
+
+  useEffect(()=>{
+    console.log(habits)
+  },[habits])
 
   return (
     <>

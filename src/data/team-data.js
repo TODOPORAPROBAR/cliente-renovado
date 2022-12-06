@@ -59,26 +59,26 @@ export const teamData = [
       },
     ],
   },
-  {
-    img: "/",
-    name: "Miño Brisa",
-    position: "Colaborador",
-    socials: [
-      {
-        color: "light-blue",
-        name: "twitter",
-      },
-      {
-        color: "blue",
-        name: "facebook",
-        path: ""
-      },
-      {
-        color: "pink",
-        name: "dribbble",
-      },
-    ],
-  },
+  // {
+  //   img: "/",
+  //   name: "Miño Brisa",
+  //   position: "Colaborador",
+  //   socials: [
+  //     {
+  //       color: "light-blue",
+  //       name: "twitter",
+  //     },
+  //     {
+  //       color: "blue",
+  //       name: "facebook",
+  //       path: ""
+  //     },
+  //     {
+  //       color: "pink",
+  //       name: "dribbble",
+  //     },
+  //   ],
+  // },
 ];
 
 export default teamData;

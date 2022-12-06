@@ -5,11 +5,9 @@ import getRandomId from '@/helpers/getRandomId'
 
 const HabitItem = ({ indexHabit, data, onChangeTasks }) => {
   const { title, description } = data
-  const [open, setOpen] = useState(true)
   const [tasks, setTasks] = useState(data.tasks)
   const [newItem, setNewItem] = useState()
 
-  console.log(tasks)
   const handleOnDeleteItem = (id) => {
     const newTasks = tasks.filter((_, index) => index !== id)
     setTasks(newTasks)
@@ -35,18 +33,6 @@ const HabitItem = ({ indexHabit, data, onChangeTasks }) => {
               (task, index) =>
                 <div key={'task-check-' + getRandomId(4)}>
                   <TaskItem data={task} onDelete={() => handleOnDeleteItem(index)} />
-                  {/* <Checkbox
-                      id={"task-check-" + getRandomId(4)}
-                      disabled={task.disabled}
-                      labelProps={{
-                        style: {
-                          textDecoration: task.disabled ? 'line-through' : 'none'
-                        }
-                      }}
-                      label={task.description}
-                      checked={task.checked}
-                      onChange={() => handleCheckTask(index)}
-                    /> */}
                 </div>
             )
           }
