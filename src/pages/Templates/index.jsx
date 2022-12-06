@@ -6,6 +6,7 @@ import AvatarLayout from '../Habitos/layouts/AvatarLayout'
 const Templates = () => {
   const initTemplates = [
     {
+      _id: 'asdasdweq2312321',
       title: 'prueba piloto',
       description: '...',
       tasks: [
@@ -14,6 +15,7 @@ const Templates = () => {
       ]
     },
     {
+      _id: 'asdasdweq2312321',
       title: 'prueba piloto',
       description: '...',
       tasks: [
