@@ -44,10 +44,10 @@ export function SignIn() {
           </CardBody>
           <CardFooter className="pt-0">
             <Button variant="gradient" fullWidth>
-              Sign In
+            Registrate
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
-              ...
+              Don't have an account?
               <Link to="/sign-up">
                 <Typography
                   as="span"
@@ -55,7 +55,7 @@ export function SignIn() {
                   color="blue"
                   className="ml-1 font-bold"
                 >
-                  ...
+                  Sign up
                 </Typography>
               </Link>
             </Typography>

@@ -23,7 +23,11 @@ export function Profile() {
                     <div className="-mt-20 w-40">
                       <Avatar
                         src="/"
+<<<<<<< HEAD
                         alt="Perfil"
+=======
+                        alt="Profile picture"
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                         variant="circular"
                         className="h-full w-full shadow-xl"
                       />
@@ -85,24 +89,40 @@ export function Profile() {
               </div>
               <div className="my-8 text-center">
                 <Typography variant="h2" color="blue-gray" className="mb-2">
+<<<<<<< HEAD
                   ...
+=======
+                  Jacquemin Sheila
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                 </Typography>
                 <div className="mb-16 flex items-center justify-center gap-2">
                   <MapPinIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
+<<<<<<< HEAD
                     ...
+=======
+                    Cmte. Fontana - Formosa
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                   </Typography>
                 </div>
                 <div className="mb-2 flex items-center justify-center gap-2">
                   <BriefcaseIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
+<<<<<<< HEAD
                     ...
+=======
+                    Colaboradora
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                   </Typography>
                 </div>
                 <div className="mb-2 flex items-center justify-center gap-2">
                   <BuildingLibraryIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
+<<<<<<< HEAD
                     ...
+=======
+                    Instituto Politécnico Formosa, "IPF"
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                   </Typography>
                 </div>
               </div>
@@ -111,7 +131,10 @@ export function Profile() {
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
                     <Typography className="mb-8 font-normal text-blue-gray-500">
+<<<<<<< HEAD
                       ...
+=======
+>>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
                     </Typography>
                     <Button variant="text">...</Button>
                   </div>
