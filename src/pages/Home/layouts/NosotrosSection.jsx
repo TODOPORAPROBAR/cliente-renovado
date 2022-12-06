@@ -21,11 +21,16 @@ const NosotrosSection = () => {
           className="mb-3 font-bold"
           color="blue-gray"
         >
-          Buscamos mejorar los hábitos en las vidas de las personas.
+        BUSCAMOS CAMBIOS FAVORABLES EN LA VIDA DE LAS PERSONAS
         </Typography>
         <Typography className="mb-8 font-normal text-blue-gray-500">
-          Buscamos mejorar los hábitos en las vidas de las personas, brindándoles herramientas para organizar
-          sus objetivos personales...
+        ProHabits es una plataforma tecnológica que permite la construcción de soluciones 
+        para la gestión y organización remota de los hábitos saludables, de una persona individual o 
+        de un colectivo de personas mediante la creación y seguimiento de tareas de buenos hábitos, 
+        en conjunto con la integración de módulos de servicios.
+
+        Brindamos una sección de hábitos que desplega tareas a desarrollar, para llevar una vida saludable y 
+        una rutina organizada, es una gestión creada para personas dependientes.
           <br />
           <br />
           ........

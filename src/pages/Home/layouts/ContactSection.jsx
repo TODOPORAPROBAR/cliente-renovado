@@ -12,15 +12,12 @@ import { contactData } from "@/data";
 const ContactSection = () => {
   return (
     <section className="relative bg-blue-gray-50/50 py-24 px-4">
-      <div className="container mx-auto">
-<<<<<<< HEAD
+      <div className="container mx-auto">,
+
         <PageTitle heading="Construye algo">
-          ....
-=======
-        <PageTitle heading="...">
-        ...
->>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
+        ....
         </PageTitle>
+        
         <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
           {contactData.map(({ title, icon, description }) => (
             <Card

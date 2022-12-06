@@ -79,9 +79,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  HEAD
   title: "ProHabits",
->>>>>>> 8c0eda777c06031ae136d69a6837bf2a152cd95e
   description:
     "...",
   socials: [

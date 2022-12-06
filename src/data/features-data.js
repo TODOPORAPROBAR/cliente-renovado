@@ -10,14 +10,14 @@ export const featuresData = [
     title: "OBJETIVOS",
     icon: StarIcon,
     description:
-      "...",
+      "Favorecer un modelo de organización, promotor de hábitos para llevar una vida saludable. Nuestro objetivo es que los usuarios entiendan la importancia de la protección de la salud.",
   },
   {
     color: "red",
     title: "DESTINO",
     icon: ArrowPathIcon,
     description:
-      "...",
+      "Para las personas que teng",
   },
   {
     color: "teal",

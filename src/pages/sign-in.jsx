@@ -47,7 +47,7 @@ export function SignIn() {
             Registrate
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
-              Don't have an account?
+              ¿No tienes una cuenta aún?
               <Link to="/sign-up">
                 <Typography
                   as="span"
