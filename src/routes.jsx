@@ -12,39 +12,51 @@ import {
 HEAD
 import MisHabitos from "./pages/MisHabitos";
 import Template from "./pages/Template";
+import MicroLogin from "./pages/MicroLogin";
+import getUserToken from "./helpers/getUserToken";
 
+const token = getUserToken()
 
-export const routes = [
+const routes = [
   {
     icon: HomeIcon,
     name: "home",
     path: "/home",
     element: <Home />,
+    nav: true,
+    logged: false
   },
-  {
-    icon: UserCircleIcon,
-    name: "profile",
-    path: "/profile",
-    element: <Profile />,
-  },
+  // {
+  //   icon: UserCircleIcon,
+  //   name: "profile",
+  //   path: "/profile",
+  //   element: <Profile />,
+  //   nav: true,
+  // },
   {
     icon: ArrowRightOnRectangleIcon,
     name: "Sign In",
     path: "/sign-in",
     element: <SignIn />,
+    nav: true,
+    logged: false
   },
   {
     icon: UserPlusIcon,
     name: "Sign Up",
     path: "/sign-up",
     element: <SignUp />,
+    nav: true,
+    logged: false
   },
-  {
-    icon: DocumentTextIcon,
-    name: "Daily",
-    path: "/daily",
-    element: <Habitos />,
-  },
+  // {
+  //   icon: DocumentTextIcon,
+  //   name: "Docs",
+  //   href: "https://www.material-tailwind.com/docs/react/installation",
+  //   target: "_blank",
+  //   element: "",
+  //   nav: true,
+  // },
   {
     icon: DocumentTextIcon,
     name: "Habitos",
@@ -56,13 +68,25 @@ export const routes = [
     name: "Templates",
     path: "/templates",
     element: <Templates />,
+    nav: true,
+    logged: true
   },
   {
     icon: DocumentTextIcon,
     name: "Template",
     path: "/template",
     element: <Template />,
+    nav: false,
+    logged: true
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "MicroLogin",
+    path: "/micrologin",
+    element: <MicroLogin />,
+    nav: true,
+    logged: false
   },
 ];
 
-export default routes;
+export default token ? routes : routes.filter(route => !route.logged)
