@@ -7,16 +7,23 @@ import verifyCompleted from './helpers/verifyCompleted';
 import getDailyHabits from './helpers/getDailyHabits';
 import updateDailyHabits from './helpers/updateDailyHabits';
 import disableTasks from './helpers/disableTasks';
+import { AlertCompleted, AlertGood } from './helpers/SwalAlerts';
+import { useNavigate } from 'react-router-dom';
+import okKid from '@/images/ok-kid.gif'
 
 const Habitos = () => {
   const [habits, setHabits] = useState(null)
+  const [completed, setCompleted] = useState(false)
+  const [sended, setSended] = useState(false)
   const [info, setInfo] = useState({ complete: 0, incomplete: 0, days: 0 })
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleGetDailyHabits = async () => {
     const { history, days } = await getDailyHabits()
+    setSended(true)
     setHabits(disableTasks(history.habits))
-    setInfo(prev => ({...prev, days}) )
+    setInfo(prev => ({ ...prev, days }))
   }
 
   const handleUpdateDailyHabits = async () => {
@@ -24,6 +31,11 @@ const Habitos = () => {
     const { history } = await updateDailyHabits(habits)
     setLoading(false)
     setHabits(disableTasks(history.habits))
+    setSended(true)
+    const { incomplete } = info
+    incomplete === 0
+      ? AlertCompleted.fire().then(() => navigate('/home'))
+      : AlertGood.fire().then(() => navigate('/home'))
   }
 
   const handleUpdateHabits = (index, tasks) => {
@@ -32,34 +44,14 @@ const Habitos = () => {
     setHabits(listHabits)
   }
 
-  // const handleCheckHabitTask = (habitIndex, taskIndex) => {
-  //   setHabits(prev => {
-  //     const value = prev[habitIndex].tasks[taskIndex].checked
-  //     prev[habitIndex].tasks[taskIndex].checked = !value
-  //     return prev
-  //   })
-  // }
-
-  // const saveTasks = async(e) => {
-  //   e.preventDefault()
-  //   // console.log(habits);
-  //   const tasks = await fetch("http://localhost:4000/tasks",{
-  //     body: JSON.stringify(habits),
-  //     method: "POST",
-  //     mode: 'cors',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //   })
-  //   .then(response => {
-  //     return response.json()
-  //   })
-  // console.log(tasks)
-  // }
-
   const handleUpdate = () => {
     const { complete, incomplete } = verifyCompleted(habits)
-    setInfo(prev => ({...prev, complete, incomplete }))
+    if(sended){
+      incomplete === 0
+      ? setCompleted(true)
+      : setSended(false)
+    }
+    setInfo(prev => ({ ...prev, complete, incomplete }))
   }
 
   useEffect(() => {
@@ -93,31 +85,41 @@ const Habitos = () => {
               {/* Body */}
               <div className="mb-10 border-t border-blue-gray-50 py-6 text-center">
                 <div className="mt-2 flex flex-wrap justify-center">
-                  <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
-                    {
-                      habits &&
-                      habits.map(
-                        (habit, index) =>
-                          <HabitAccordion
-                            key={'habit-' + index}
-                            indexHabit={index}
-                            data={habit}
-                            onClickTask={handleUpdateHabits}
-                          />
-                      )
-                    }
-                    <div className="mt-3">
-                      <Button disabled={loading} onClick={handleUpdateDailyHabits}>
+                  {
+                    !completed
+                      ?
+                      <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
                         {
-                          loading
-                            ? 'Guardando...'
-                            : 'Guardar'
+                          habits &&
+                          habits.map(
+                            (habit, index) =>
+                              <HabitAccordion
+                                key={'habit-' + index}
+                                indexHabit={index}
+                                data={habit}
+                                onClickTask={handleUpdateHabits}
+                              />
+                          )
                         }
-                      </Button>
-                    </div>
+                        <div className="mt-3">
+                          <Button disabled={loading} onClick={handleUpdateDailyHabits}>
+                            {
+                              loading
+                                ? 'Guardando...'
+                                : 'Guardar'
+                            }
+                          </Button>
+                        </div>
 
-                    {/* <Button onClick={(e) => saveTasks(e)}>Guardar</Button> */}
-                  </div>
+                        {/* <Button onClick={(e) => saveTasks(e)}>Guardar</Button> */}
+                      </div>
+                    : <div className='flex flex-col items-center'>
+                        <div className='text-2xl'>Ya completaste todas tus tareas diarias puedes irte, eres libre</div>
+                        <img src={okKid} style={{width: 400}} />
+                        <Button className='mt-3' onClick={() => navigate('/home')}>Volver</Button>
+                      </div>
+                  }
+
                 </div>
               </div>
             </div>
