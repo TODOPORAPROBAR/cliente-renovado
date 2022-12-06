@@ -1,10 +1,37 @@
+import {useState} from 'react'
 import { Link } from "react-router-dom";
+import axios from 'axios'
 import styles from "./styles.module.css";
 
 const Login = () => {
 
+	const [data, setData] = useState({
+		email: "",
+		password: "",
+	});
+
+	const [error, setError] = useState("");
+
+	const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
+
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		try {
+			const url = "http://localhost:4000/api/auth";
+			const {data: res} = await axios.post(url, data)
+			window.location = "/"
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
 	};
 
 	return (
@@ -17,6 +44,8 @@ const Login = () => {
 							type="email"
 							placeholder="Correo"
 							name="email"
+							onChange={handleChange}
+							value={data.email}
 							required
 							className={styles.input}
 						/>
@@ -24,14 +53,16 @@ const Login = () => {
 							type="password"
 							placeholder="Contraseña"
 							name="password"
+							onChange={handleChange}
+							value={data.password}
 							required
 							className={styles.input}
 						/>
-						<Link to="/">
+						{error && <div className={styles.error_msg}>{error}</div>}
 						<button className={styles.green_btn}>
 							Iniciar sesion
 						</button>
-						</Link>
+						
 					</form>
 				</div>
 				<div className={styles.right}>
