@@ -9,7 +9,6 @@ import {
   UserPlusIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid"; 
-HEAD
 import MisHabitos from "./pages/MisHabitos";
 import Template from "./pages/Template";
 import MicroLogin from "./pages/MicroLogin";
@@ -62,6 +61,16 @@ const routes = [
     name: "Habitos",
     path: "/habitos",
     element: <MisHabitos />,
+    nav: true,
+    logged: true
+  },
+  {
+    icon: DocumentTextIcon,
+    name: "Daily",
+    path: "/daily",
+    element: <Habitos />,
+    nav: true,
+    logged: true
   },
   {
     icon: DocumentTextIcon,
