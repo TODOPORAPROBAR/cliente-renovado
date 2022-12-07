@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
@@ -9,9 +9,13 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import getUserToken from '@/helpers/getUserToken';
+import SessionContext from "@/context/SessionContext";
 
 export function Navbar({ brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
+  const [navItems, setNavItems] = useState(routes)
+  const {session} = useContext(SessionContext)
 
   React.useEffect(() => {
     window.addEventListener(
@@ -20,7 +24,10 @@ export function Navbar({ brandName, routes, action }) {
     );
   }, []);
 
-  const navItems = routes.filter(route => route.nav)
+  useEffect(() => {
+    const logRoutes = routes.filter(route => !route.logged)
+    setNavItems(!session ? logRoutes.filter(route => route.nav) : routes.filter(route => route.nav))
+  },[session])
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">

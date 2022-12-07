@@ -1,11 +1,14 @@
 import setUserToken from '@/helpers/setUserToken'
 import { Button, Input } from '@material-tailwind/react'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import SessionContext from '@/context/SessionContext'
 
 const MicroLogin = () => {
   const [form, setForm] = useState({
     username: '', password: ''
   })
+
+  const { setSession } = useContext(SessionContext)
 
   const handleSetForm = (e) => {
     const { value, name } = e.target
@@ -13,7 +16,6 @@ const MicroLogin = () => {
   }
 
   const handleSubmit = async () => {
-    console.log('aa')
     try {
       const server = import.meta.env.VITE_APP_SERVER_URL
       const content = {
@@ -27,6 +29,7 @@ const MicroLogin = () => {
       const json = await response.json()
       if (response.ok) {
         const { token } = await json
+        setSession(token)
         setUserToken(token)
       }
     } catch (error) {

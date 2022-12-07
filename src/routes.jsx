@@ -12,10 +12,8 @@ import {
 import MisHabitos from "./pages/MisHabitos";
 import Template from "./pages/Template";
 import MicroLogin from "./pages/MicroLogin";
-import getUserToken from "./helpers/getUserToken";
 import DeleteDaily from "./pages/DeleteDaily";
-
-const token = getUserToken()
+import Logout from './pages/Logout';
 
 const routes = [
   {
@@ -62,7 +60,7 @@ const routes = [
     name: "Habitos",
     path: "/habitos",
     element: <MisHabitos />,
-    nav: true,
+    nav: false,
     logged: true
   },
   {
@@ -105,6 +103,14 @@ const routes = [
     nav: true,
     logged: true
   },
+  {
+    icon: DocumentTextIcon,
+    name: "Logout",
+    path: "/logout",
+    element: <Logout />,
+    nav: true,
+    logged: true
+  },
 ];
 
-export default token ? routes : routes.filter(route => !route.logged)
+export default routes
