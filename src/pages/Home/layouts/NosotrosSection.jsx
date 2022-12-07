@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Card,
   CardBody,
@@ -10,6 +10,9 @@ import { UsersIcon } from "@heroicons/react/24/solid";
 
 
 const NosotrosSection = () => {
+
+const [show, setShow] = useState(false)
+
   return (
     <div className="mt-32 flex flex-wrap items-center">
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
@@ -23,19 +26,26 @@ const NosotrosSection = () => {
         >
         BUSCAMOS CAMBIOS FAVORABLES EN LA VIDA DE LAS PERSONAS
         </Typography>
-        <Typography className="mb-8 font-normal text-blue-gray-500">
+        <Typography className="text mb-8 font-normal text-blue-gray-500">
         ProHabits es una plataforma tecnológica que permite la construcción de soluciones 
         para la gestión y organización remota de los hábitos saludables, de una persona individual o 
         de un colectivo de personas mediante la creación y seguimiento de tareas de buenos hábitos, 
         en conjunto con la integración de módulos de servicios.
 
+          { show &&
+            <p>
         Brindamos una sección de hábitos que desplega tareas a desarrollar, para llevar una vida saludable y 
-        una rutina organizada, es una gestión creada para personas dependientes.
-          <br />
-          <br />
+        una rutina organizada, es una gestión creada para personas dependientes
+        </p>
+        }
+     
+        
+
+      
+       
           ........
         </Typography>
-        <Button variant="outlined">Leer más</Button>
+        <Button onClick={() => setShow(!show)} className='read-more-btn' variant="outlined">Leer más</Button>
       </div>
       <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
         <Card className="shadow-lg shadow-gray-500/10">
