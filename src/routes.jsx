@@ -16,6 +16,7 @@ import Template from "./pages/Template";
 import MicroLogin from "./pages/MicroLogin";
 import DeleteDaily from "./pages/DeleteDaily/DeleteDaily"
 import Logout from './pages/Logout';
+import DeleteDailyNow from './pages/DeleteDailyNow';
 
 const routes = [
   {
@@ -33,13 +34,21 @@ const routes = [
   //   element: <Profile />,
   //   nav: true,
   // },
+  // {
+  //   icon: ArrowRightOnRectangleIcon,
+  //   name: "Login",
+  //   path: "/login",
+  //   element: <InicioSesion />,
+  //   nav: true,
+  //   logged: false
+  // },
   {
-    icon: ArrowRightOnRectangleIcon,
+    icon: DocumentTextIcon,
     name: "Login",
-    path: "/login",
-    element: <InicioSesion />,
+    path: "/micrologin",
+    element: <MicroLogin />,
     nav: true,
-    logged: false
+    logged: true
   },
   {
     icon: UserPlusIcon,
@@ -59,7 +68,7 @@ const routes = [
   // },
   {
     icon: DocumentTextIcon,
-    name: "Habitos",
+    name: "Mis-Habitos",
     path: "/habitos",
     element: <MisHabitos />,
     nav: false,
@@ -75,7 +84,7 @@ const routes = [
   },
   {
     icon: DocumentTextIcon,
-    name: "Templates",
+    name: "Habitos",
     path: "/templates",
     element: <Templates />,
     nav: true,
@@ -91,17 +100,9 @@ const routes = [
   },
   {
     icon: DocumentTextIcon,
-    name: "MicroLogin",
-    path: "/micrologin",
-    element: <MicroLogin />,
-    nav: true,
-    logged: true
-  },
-  {
-    icon: DocumentTextIcon,
     name: "DeleteDaily",
     path: "/deletedaily",
-    element: <DeleteDaily />,
+    element: <DeleteDailyNow />,
     nav: true,
     logged: false
   },
