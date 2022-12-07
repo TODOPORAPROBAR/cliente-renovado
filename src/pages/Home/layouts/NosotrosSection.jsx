@@ -24,13 +24,13 @@ const [show, setShow] = useState(false)
           className="mb-3 font-bold"
           color="blue-gray"
         >
-        BUSCAMOS CAMBIOS FAVORABLES EN LA VIDA DE LAS PERSONAS
+        BUSCAMOS CAMBIOS FAVORABLES EN LOS HÁBITOS DE LAS PERSONAS
         </Typography>
-        <Typography className="text mb-8 font-normal text-blue-gray-500">
+        <Typography className="text mb-8 font-normal text-blue-gray-800">
         ProHabits es una plataforma tecnológica que permite la construcción de soluciones 
         para la gestión y organización remota de los hábitos saludables, de una persona individual o 
         de un colectivo de personas mediante la creación y seguimiento de tareas de buenos hábitos, 
-        en conjunto con la integración de módulos de servicios.
+        en conjunto con la integración de módulos de servicios...
 
           { show &&
             <p>
@@ -38,12 +38,7 @@ const [show, setShow] = useState(false)
         una rutina organizada, es una gestión creada para personas dependientes
         </p>
         }
-     
-        
 
-      
-       
-          ........
         </Typography>
         <Button onClick={() => setShow(!show)} className='read-more-btn' variant="outlined">Leer más</Button>
       </div>
@@ -64,8 +59,8 @@ const [show, setShow] = useState(false)
             >
               Servicios
             </Typography>
-            <Typography className="font-normal text-blue-gray-500">
-              ....
+            <Typography className="font-normal text-blue-gray-700">
+              A disposición de los usuarios, información que puede interesarte. ¿En qué podemos ayudarte?
             </Typography>
           </CardBody>
         </Card>

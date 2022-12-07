@@ -85,7 +85,7 @@ export function Profile() {
               </div>
               <div className="my-8 text-center">
                 <Typography variant="h2" color="blue-gray" className="mb-2">
-                  ...
+                  13458
                 </Typography>
                 <div className="mb-16 flex items-center justify-center gap-2">
                   <MapPinIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
@@ -112,7 +112,7 @@ export function Profile() {
                     <Typography className="mb-8 font-normal text-blue-gray-500">
                       ...
                     </Typography>
-                    <Button variant="text">...</Button>
+                    <Button variant="text"></Button>
                   </div>
                 </div>
               </div>

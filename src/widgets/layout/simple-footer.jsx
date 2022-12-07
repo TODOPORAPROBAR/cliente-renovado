@@ -44,7 +44,7 @@ SimpleFooter.defaultProps = {
   brandName: "...",
   brandLink: "",
   routes: [
-    { name: "...", path: "" },
+    { name: "", path: "" },
     { name: "...", path: "" },
     { name: "...", path: "" },
     { name: "...", path: "" },

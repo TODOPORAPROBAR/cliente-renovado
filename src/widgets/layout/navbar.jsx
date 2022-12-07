@@ -127,7 +127,7 @@ Navbar.defaultProps = {
       target="_blank"
     >
       <Button variant="gradient" size="sm" fullWidth>
-        ...
+        
       </Button>
     </a>
   ),

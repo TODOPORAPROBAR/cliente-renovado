@@ -10,7 +10,7 @@ const TeamSection = () => {
     <section className="px-4 pt-20 pb-48">
       <div className="container mx-auto">
         <PageTitle heading="PRESENTANDO EL EQUIPO">
-          Conformado por un grupo de Estudiantes del Instituto Politécnico Formosa
+          Conformado por un grupo de Estudiantes de la carrera "Tecnicatura Superior en Desarrollo de Software Multiplataforma" que se dicta en el Instituto Politécnico Formosa - IPF.
         </PageTitle>
         <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3">
           {teamData.map(({ img, name, position, socials }) => (
