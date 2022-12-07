@@ -14,7 +14,7 @@ export const featuresData = [
   },
   {
     color: "red",
-    title: "DESTINO",
+    title: "OTRA COSA",
     icon: ArrowPathIcon,
     description:
       "Para las personas que teng",
