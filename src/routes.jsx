@@ -1,7 +1,9 @@
-import { Profile, SignIn, SignUp } from "@/pages";
+import { Profile } from "@/pages";
 import Habitos from "./pages/Habitos";
 import Home from "./pages/Home";
 import Templates from "./pages/Templates";
+import InicioSesion from './pages/components/Login/index'
+import Registro from './pages/components/Singup/index'
 import {
   HomeIcon,
   UserCircleIcon,
@@ -33,17 +35,17 @@ const routes = [
   // },
   {
     icon: ArrowRightOnRectangleIcon,
-    name: "Sign In",
-    path: "/sign-in",
-    element: <SignIn />,
+    name: "Login",
+    path: "/login",
+    element: <InicioSesion />,
     nav: true,
     logged: false
   },
   {
     icon: UserPlusIcon,
-    name: "Sign Up",
-    path: "/sign-up",
-    element: <SignUp />,
+    name: "Registro",
+    path: "/registro",
+    element: <Registro />,
     nav: true,
     logged: false
   },
