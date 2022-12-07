@@ -13,9 +13,7 @@ const ContactSection = () => {
   return (
     <section className="relative bg-blue-gray-50/50 py-24 px-4">
       <div className="container mx-auto">
-        <PageTitle heading="...">
-          FUNCIONALIDADES
-        </PageTitle>
+      
         
         <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
           {contactData.map(({ title, icon, description }, index) => (

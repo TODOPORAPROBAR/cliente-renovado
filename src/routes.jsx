@@ -14,7 +14,7 @@ import {
 import MisHabitos from "./pages/MisHabitos";
 import Template from "./pages/Template";
 import MicroLogin from "./pages/MicroLogin";
-import DeleteDaily from "./pages/DeleteDaily";
+import DeleteDaily from "./pages/DeleteDaily/DeleteDaily"
 import Logout from './pages/Logout';
 
 const routes = [
@@ -63,7 +63,7 @@ const routes = [
     path: "/habitos",
     element: <MisHabitos />,
     nav: false,
-    logged: true
+    logged: false
   },
   {
     icon: DocumentTextIcon,
@@ -71,7 +71,7 @@ const routes = [
     path: "/",
     element: <Habitos />,
     nav: true,
-    logged: true
+    logged: false
   },
   {
     icon: DocumentTextIcon,
@@ -79,7 +79,7 @@ const routes = [
     path: "/templates",
     element: <Templates />,
     nav: true,
-    logged: true
+    logged: false
   },
   {
     icon: DocumentTextIcon,
@@ -87,7 +87,7 @@ const routes = [
     path: "/template",
     element: <Template />,
     nav: false,
-    logged: true
+    logged: false
   },
   {
     icon: DocumentTextIcon,
@@ -95,7 +95,7 @@ const routes = [
     path: "/micrologin",
     element: <MicroLogin />,
     nav: true,
-    logged: false
+    logged: true
   },
   {
     icon: DocumentTextIcon,
@@ -103,7 +103,7 @@ const routes = [
     path: "/deletedaily",
     element: <DeleteDaily />,
     nav: true,
-    logged: true
+    logged: false
   },
   {
     icon: DocumentTextIcon,
@@ -111,7 +111,7 @@ const routes = [
     path: "/logout",
     element: <Logout />,
     nav: true,
-    logged: true
+    logged: false
   },
 ];
 

@@ -1,8 +1,8 @@
 export const teamData = [
   {
-    img: "/",
+    img: "../../img/WhatsApp Image 2022-12-06 at 23.59.48.jpeg",
     name: "Morinigo Jonathan ",
-    position: "Web Developer",
+    position: "Estudiante",
     socials: [
       {
         color: "light-blue",
@@ -20,9 +20,9 @@ export const teamData = [
     ],
   },
   {
-    img: "/",
+    img: "../../img/WhatsApp Image 2022-12-06 at 23.53.12.jpeg",
     name: "Jacquemin Sheila",
-    position: "Marketing Specialist",
+    position: "Estudiante",
     socials: [
       {
         color: "light-blue",
@@ -40,13 +40,14 @@ export const teamData = [
     ],
   },
   {
-    img: "/",
+    img: "../../public/img/WhatsApp Image 2022-12-07 at 00.05.42.jpeg",
     name: "Rivenson Camila",
-    position: "Colaborador",
+    position: "Estudiante",
     socials: [
       {
         color: "light-blue",
         name: "twitter",
+        path: ""
       },
       {
         color: "blue",

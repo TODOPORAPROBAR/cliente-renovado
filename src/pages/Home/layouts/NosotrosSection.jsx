@@ -42,7 +42,7 @@ const NosotrosSection = () => {
           <CardHeader className="relative h-56">
             <img
               alt="Imagen"
-              src="/"
+              src="https://image.freepik.com/vector-gratis/buenos-habitos-saludables-nino-nina_24908-26127.jpg"
               className="h-full w-full"
             />
           </CardHeader>
